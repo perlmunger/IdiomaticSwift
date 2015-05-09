@@ -1,5 +1,6 @@
 
 import UIKit
+import Foundation
 
 class Item {
     var quantity:Int {
@@ -30,8 +31,8 @@ items.append(item2)
 items.append(item3)
 items.append(item3)
 
-var reduced = items.map({ $0.quantity as Int }).reduce(0, combine: +)
-reduced
+var reducedSum = items.map({ $0.quantity as Int }).reduce(0, combine: +)
+reducedSum
 
 var sum = items.reduce(0) { $0 + $1.quantity } as Int
 sum
@@ -48,11 +49,68 @@ max
 var min = items.reduce(items[0], combine: { ($0.quantity < $1.quantity) ? $0 : $1 })
 min
 
-//let nums = [1, 6, 3, 9, 4, 6];
-//let numMax = nums.reduce(Int.min, { max($0, $1) })
+var items2 = [Item]()
+items2.append(item1)
+items2.append(item2)
+items2.append(item3)
+items2.append(item3)
 
-var distinct = NSSet(array: items)
-distinct.allObjects
+var all = [items, items2].flatMap { $0 }.map { $0.quantity }
+
+all
+
+var distinct = all.reduce(Set<Int>(), combine: { (set, current) -> Set<Int> in
+    var tmp = set
+    tmp.insert(current)
+    return tmp
+})
+
+distinct
+
+
+let initialArray = [1, 4, 2, 2, 6, 24, 15, 2, 60, 15, 6]
+
+// Sum
+var sum2 = initialArray.reduce(
+    0, combine: { (accumulator, current) -> Int in
+        return accumulator + current
+}) // 137
+
+// Average
+let avg2 = sum2 / initialArray.count // 12
+
+// Max
+let max2 = initialArray.reduce(initialArray.first!, combine: { (last, current) -> Int in
+    return last > current ? last : current
+}) // 60
+
+// Min
+let min2 = initialArray.reduce(initialArray.first!, combine: { (last, current) -> Int in
+    return last < current ? last : current
+}) // 1
+
+// UnionOfObjects
+let notFlat = [[1, 4, 2, 2, 6, 24], [15, 2, 60, 15, 6]] // An array of arrays of integers
+
+var flat = notFlat.flatMap({ $0 }) // [1, 4, 2, 2, 6, 24, 15, 2, 60, 15, 6]
+
+// DistinctUnionOfObjects
+var distinctUnionOObjects = flat.reduce(Set<Int>(), combine: { (last, current) -> Set<Int> in
+    var tmp = last
+    tmp.insert(current)
+    return tmp
+}) // {2, 4, 60, 6, 15, 24, 1}
+
+// Or simpler
+var distinctUnionOfObjects = Set(flat) // {2, 4, 60, 6, 15, 24, 1}
+var distinctAsArray = Array(distinctUnionOfObjects) // [2, 4, 60, 6, 15, 24, 1]
+
+
+
+//var allObjects = (items as NSArray).valueForKeyPath("@sum.quantity") as! NSNumber
+//var quantity = (items! as NSArray).valueForKeyPath("@sum.quantity") as? NSNumber
+
+//allObjects.integerValue
 
 
 //let gtFour = items.filter { (item) -> Bool in
@@ -88,3 +146,4 @@ var dicts = items.reduce([String:Item](), combine: { (dictionary, currentElement
 })
 
 dicts
+

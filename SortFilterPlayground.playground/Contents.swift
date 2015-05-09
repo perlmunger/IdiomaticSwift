@@ -5,7 +5,7 @@ let items = ["Veggies" : ["Cucumbers", "Carrots", "Celery", "Romain"],
     "Fruits" : ["Apples", "Bananas", "Cherries", "Pomagranate"]]
 
 
-let veggies = items["Veggies"]
+var veggies = items["Veggies"]
 
 // Typecasting to NSArray
 var filteredOldWay = (veggies! as NSArray).filteredArrayUsingPredicate(
@@ -22,15 +22,20 @@ let filtered2 = veggies?.filter { (string) -> Bool in
     return string.lowercaseString.hasPrefix("c")
 }
 
-filtered?.sort({ (string1, string2) -> Bool in
-    return string1 < string2
+// Old way, (more typecasting)
+var sortedOldWay = (veggies! as NSArray).sortedArrayUsingDescriptors(
+    [NSSortDescriptor(key: "self", ascending: false)])
+
+
+// Shorthand
+var sorted = veggies?.sorted(>)
+
+// Explicit
+var sorted2 = veggies?.sorted({ (str1, str2) -> Bool in
+    return str1 > str2
 })
 
-filtered
 
-filtered?.sorted({ (string1, string2) -> Bool in
-
-})
 
 
 //func itemsForName(name:String) -> [String]? {
