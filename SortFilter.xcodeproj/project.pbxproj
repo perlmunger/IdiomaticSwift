@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B397D1901AFDA2590072D78D /* Transform.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Transform.playground; sourceTree = "<group>"; };
 		B3ADC2BC1AF5309D00F03A0E /* SortFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3ADC2C01AF5309D00F03A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3ADC2C11AF5309D00F03A0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +41,7 @@
 		B3ADC2D51AF5309D00F03A0E /* SortFilterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SortFilterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3ADC2DA1AF5309D00F03A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3ADC2DB1AF5309D00F03A0E /* SortFilterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortFilterTests.m; sourceTree = "<group>"; };
+		B3ADC2E51AF538C600F03A0E /* SortFilterPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SortFilterPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,8 @@
 		B3ADC2B31AF5309D00F03A0E = {
 			isa = PBXGroup;
 			children = (
+				B397D1901AFDA2590072D78D /* Transform.playground */,
+				B3ADC2E51AF538C600F03A0E /* SortFilterPlayground.playground */,
 				B3ADC2BE1AF5309D00F03A0E /* SortFilter */,
 				B3ADC2D81AF5309D00F03A0E /* SortFilterTests */,
 				B3ADC2BD1AF5309D00F03A0E /* Products */,
@@ -416,6 +420,7 @@
 				B3ADC2E11AF5309D00F03A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3ADC2E21AF5309D00F03A0E /* Build configuration list for PBXNativeTarget "SortFilterTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				B3ADC2E41AF5309D00F03A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

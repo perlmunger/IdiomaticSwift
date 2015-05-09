@@ -10,18 +10,28 @@
 
 @interface ViewController ()
 
+@property(nonatomic, retain) NSDictionary *items;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.items = @{ @"Veggies" : @[@"Cucumbers", @"Carrots", @"Celery", @"Romain"],
+                    @"Fruits" : @[@"Apples", @"Bananas", @"Cherries", @"Pomagranate"] };
+
+
+    NSArray *veggies = self.items[@"Veggies"];
+
+    NSArray *filtered = [veggies filteredArrayUsingPredicate:
+                         [NSPredicate predicateWithFormat:@"self BEGINSWITH[c] %@", @"c"]];
+    
+    NSArray *sorted = [filtered sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
+
+    NSLog(@"%@", sorted);
+    
 }
 
 @end
