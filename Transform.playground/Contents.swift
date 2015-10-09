@@ -131,7 +131,7 @@ var myString:NSString = "testing"
 //var result = reduce(Array(myString), "", { $0! + ($1 == "\\" ? "" : $1) } )
 
 
-var dict = reduce(items, [String:Item]()) { thing, element in
+var dict = items.reduce([String:Item]()) { thing, element in
     var d = thing
     d[element.name] = element
     return d

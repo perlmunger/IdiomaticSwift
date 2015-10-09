@@ -28,10 +28,10 @@ var sortedOldWay = (veggies! as NSArray).sortedArrayUsingDescriptors(
 
 
 // Shorthand
-var sorted = veggies?.sorted(>)
+var sorted = veggies?.sort(>)
 
 // Explicit
-var sorted2 = veggies?.sorted({ (str1, str2) -> Bool in
+var sorted2 = veggies?.sort({ (str1, str2) -> Bool in
     return str1 > str2
 })
 
